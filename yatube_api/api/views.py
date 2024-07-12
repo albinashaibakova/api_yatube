@@ -38,7 +38,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         post = Post.objects.get(id=self.kwargs['post_id'])
         serializer.save(author=self.request.user,
-                        post=post) 
+                        post=post)
 
     def perform_update(self, serializer):
         if serializer.instance.author != self.request.user:
